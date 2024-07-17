@@ -1,0 +1,41 @@
+{
+  "name": "@mightylittle/event-emitter",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Event-emitter implementation: publish and subscribe to CustomEvents.",
+  "homepage": "https://github.com/mightylittle/event-emitter",
+  "source": "src/index.ts",
+  "exports": {
+    "require": "./dist/event-emitter.cjs",
+    "default": "./dist/event-emitter.modern.js"
+  },
+  "main": "./dist/event-emitter.cjs",
+  "module": "./dist/event-emitter.module.js",
+  "unpkg": "./dist/event-emitter.umd.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist/",
+    "build": "npm run clean && microbundle",
+    "start": "npm run clean && microbundle watch",
+    "test": "npm run build && mocha",
+    "typedoc": "typedoc ./src/index.ts"
+  },
+  "author": "John Newton",
+  "license": "Apache-2.0",
+  "private": false,
+  "devDependencies": {
+    "@types/chai": "^4.3.16",
+    "@types/mocha": "^10.0.7",
+    "chai": "^5.1.1",
+    "microbundle": "^0.15.1",
+    "mocha": "^10.6.0",
+    "sinon": "^18.0.0",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typedoc": "^0.26.4",
+    "typescript": "^5.5.3"
+  }
+}
