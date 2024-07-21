@@ -1,11 +1,12 @@
 {
   "name": "@mightylittle/event-emitter",
   "type": "module",
-  "version": "0.1.0",
-  "description": "Event-emitter implementation: publish and subscribe to CustomEvents.",
+  "version": "0.2.0",
+  "description": "Simple event-emitter implementation.",
   "homepage": "https://github.com/mightylittle/event-emitter",
   "source": "src/index.ts",
   "exports": {
+    "types": "./dist/index.d.ts",
     "require": "./dist/event-emitter.cjs",
     "default": "./dist/event-emitter.modern.js"
   },

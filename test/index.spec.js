@@ -78,4 +78,20 @@ describe("EventEmitter", () => {
       emitter.off("event", handler);
     });
   });
+
+  it("calls handlers registered with 'once' and 'on', then disables with 'off'", () => {
+    const handler1 = fake();
+    const handler2 = fake();
+
+    emitter.once("event", handler1);
+    emitter.on("event", handler2);
+
+    emitter.emit("event");
+    emitter.emit("event");
+    emitter.off("event");
+    emitter.emit("event");
+
+    assert.isTrue(handler1.calledOnce);
+    assert.isTrue(handler2.calledTwice);
+  });
 });

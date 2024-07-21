@@ -4,17 +4,28 @@
 
 ## Usage
 
-JavaScript example:
+Example:
 
-```javascript
-import EventEmitter from "@mightylittle/event-emitter";
+```typescript
+type Foo = {
+  foo: string;
+}
 
 const emitter = new EventEmitter();
 
-emitter.once("foo", (data) => console.log("once:", data));
-emitter.on("foo", (data) => console.log("on:", data));
+const onFooHandler = (data?: Foo) => console.log("'on' triggered", data);
 
-emitter.emit("foo", data);
+emitter.once<Foo>("foo", (data?: Foo) => console.log("'once' triggered", data));
+emitter.on<Foo>("foo", onFooHandler);
+emitter.emit<Foo>("foo", {foo: "bar"});
+emitter.emit<Foo>("foo", {foo: "baaz"});
+emitter.off<Foo>("foo", onFooHandler);
+emitter.emit<Foo>("foo", {foo: "quux"});
+
+// Output:
+// 'once' triggered { foo: 'bar' }
+// 'on' triggered { foo: 'bar' }
+// 'on' triggered { foo: 'baaz' }
 ```
 
 ## Installation
