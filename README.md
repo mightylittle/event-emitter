@@ -1,4 +1,4 @@
-# @mighty-little/event-emitter
+# @mightylittle/event-emitter
 
 > Simple event-emitter implementation
 
